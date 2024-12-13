@@ -130,7 +130,7 @@ ORDER BY category;
 SELECT 
     year,
     month,
-    avg_sale
+    avg(sale)
 FROM 
 (
     SELECT 
