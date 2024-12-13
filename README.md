@@ -130,18 +130,18 @@ ORDER BY category;
 SELECT 
     year,
     month,
-    avg(sale)
+    avg_sale
 FROM 
 (
     SELECT 
         YEAR(sale_date) AS year,
         MONTH(sale_date) AS month,
         AVG(total_sale) AS avg_sale,
-        RANK() OVER (PARTITION BY YEAR(sale_date) ORDER BY AVG(total_sale) DESC) AS rank
+        RANK() OVER (PARTITION BY YEAR(sale_date) ORDER BY AVG(total_sale) DESC) AS rnk
     FROM retail_sales
     GROUP BY year, month
 ) AS t1
-WHERE rank = 1;
+WHERE rnk = 1;
 
 ```
 
