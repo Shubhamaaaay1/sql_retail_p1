@@ -151,8 +151,8 @@ SELECT
     customer_id,
     SUM(total_sale) as total_sales
 FROM retail_sales
-GROUP BY 1
-ORDER BY 2 DESC
+GROUP BY customer_id
+ORDER BY total_sales DESC
 LIMIT 5;
 ```
 
